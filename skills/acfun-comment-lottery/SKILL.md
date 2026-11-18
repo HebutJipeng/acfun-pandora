@@ -5,7 +5,7 @@ description: 根据 AcFun（A站）文章、动态或视频 ID 获取评论，�
 
 # AcFun 评论抽奖
 
-使用本目录的 `scripts/lottery.py`，只需 Python 3.10+ 标准库及访问 `www.acfun.cn` 的网络能力。不依赖特定 agent、MCP、原项目、Node 或登录态。所有路径相对于本 skill 目录；在命令中将 `<SKILL_DIR>` 替换为安装后的实际路径。
+使用本目录的 `scripts/lottery.py`，只需 Python 3.10+ 标准库及访问 `www.acfun.cn` 的网络能力。不依赖特定 agent、MCP、Node 或登录态。所有路径相对于本 skill 目录；在命令中将 `<SKILL_DIR>` 替换为安装后的实际路径。
 
 ## 输入与策略
 

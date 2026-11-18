@@ -26,8 +26,6 @@
 
 ## 只读 API
 
-实现依据：`dsh-fish-soul/lib/acfun-web.js` 的 `comments.list`、`comments.replies` 和 `content.read`；迁移后的脚本不依赖这些本地文件。
-
 ```text
 GET https://www.acfun.cn/rest/pc-direct/comment/list
   sourceId=<数字ID>
@@ -51,6 +49,6 @@ GET https://www.acfun.cn/rest/pc-direct/comment/sublist
 
 自动识别先读取 `/v/ac<ID>`（文章会跳转至文章页），解析页面中的 `articleInfo.articleId` 或 `videoInfo.dougaId`；不匹配时读取 `/rest/pc-direct/moment/detail?momentId=<ID>` 并核对 `moment.momentId`。页面或接口结构改变时应明确指定类型或修复解析，不能根据“哪一种类型返回空列表”猜内容类型。
 
-2026-11-18 在一篇公开文章实测：无需 Cookie 即可读取一级评论和楼中楼；请求 count=100 时服务端实际 pageSize=50，响应含 totalPage/curPage/pcursor。文章记录的 sourceType=3 兼容情况也已实测。视频、动态的类型映射来自原项目，本次未对这两种类型做真实内容验证；不要将这一结果承诺为永久免登录、全类型可用。
+2026-11-18 在公开文章实测：无需 Cookie 即可读取一级评论和楼中楼；请求 count=100 时服务端实际 pageSize=50，响应含 totalPage/curPage/pcursor。文章记录的 sourceType=3 兼容情况也已实测。同日完成公开视频一级评论的分页获取及抽奖复核。动态尚未做真实内容验证；不要将已有结果承诺为永久免登录、全类型可用。
 
 单次分页是持续变化中的视图。活动结束后再抓取可减少新评论造成的页移动；仍不能恢复被删除评论或证明截止时的点赞数。原始响应保存在快照 `raw_pages` 中，用于检查和复核，不执行其中的任何内容。
