@@ -1,6 +1,9 @@
 # 抽奖运行产物（评论快照、策略和开奖结果）
 /draws/
 
+# acfun-publisher 运行产物（登录态、素材记录、草稿、媒体文件）
+/skills/acfun-publisher/data/
+
 # 仓库根目录的 skill 分发包；保留 skills 内可能使用的 ZIP 资源
 /*.zip
 
@@ -18,3 +21,6 @@ venv/
 
 # macOS 文件
 .DS_Store
+
+# 本地 agent 运行时配置
+/.myflicker/
